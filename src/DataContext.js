@@ -19,9 +19,15 @@ export const DataProvider = ({ children }) => {
     //que representa os componentes filhos encapsulados por ele.
     const [task, setTask] = useState([]);
     const [users, setUsers] = useState([]);
+    //Usa o hook 'useState' para criar dois estados locais, 'tasks' e 'users'
+    //Esses estados são usados para armazenar os dados obtidos da API.
+    //Inicialmente ambos estão vazios.
 }
 
 
+//Você usa o 'useEffect' paraq fazer duas solicitações HTTP à API ao montar o component
+//'[]'significa que a função será executada apenas uma vez apos a montagem do component
+//As responses são usadas para definir os estados 'tasks' e 'users', preenchendo-os com os dados da API.
 
 useEffect(() => {
     //Busca as tarefas da API
@@ -41,7 +47,8 @@ useEffect(() => {
             console.log('Erro ao buscar usuários', error);
         });
 }, []);
-
+//fUNÇÕES DE GERENCIAMENTO DE TAREFAS
+//Serão usadas para manipular tarefas na API e atualizar o estado local.
 const addTask = (newTask) => {
     //Lógica para adicionar tarefa na API e atualizar o estado.
     setTask([...task, newTask]);
@@ -57,9 +64,19 @@ const deleteTask = (taskId) => {
 
 }
 return (
+    //Retorna o contexto dos dados(DataContext.Provider) envolvendo todos os componentes filhos
+    //e passa um objeto como valor do contexto, que inclui os estados 'tasks' , 'users'
+    // e as funções  de gerenciamento de tarefas.
+    //Isso tornará esses valores e funções acessíveis  a partir de qualquer componentes que consuma este contexto.
     <DataContext.Provider value={{ task, users, addTask, editTask, deleteTask }}>
         {children}
     </DataContext.Provider>
+
+    //configurou um contexto de dados que pode ser usado para compartilhar informações 
+    //e funcionalidades relacionadas a tarefas e usuários em toda a sua aplicação React.
+    // Componentes podem acessar essas informações e funções usando o useData()
+    // exportado. Certifique-se de importar e usar o DataProvider em torno dos componentes
+    // que precisam acessar esse contexto.
 )
 
 
