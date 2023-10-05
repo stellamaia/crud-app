@@ -1,15 +1,18 @@
 import './App.css';
-import DataContext from './DataContext.js';
-
+import { DataProvider } from './DataContext';
+import TaskList from './TaskList'; // Importe outros componentes conforme necessário
+import UserList from './UserList';
 function App() {
   return (
-    <div className="App">
-      <DataContext />
-      <p>App.js</p>
-    </div>
-  );
+    <DataProvider>
+      <div className="App">
+        {/* Renderize os componentes que desejam acessar o contexto aqui */}
+        <TaskList />
+        <UserList />
+        {/* Adicione outros componentes conforme necessário */}
+      </div>
+    </DataProvider>
+  )
 }
-  {/* Renderizar formulário de edição/criação aqui */}
-        {/* <button onClick={handleSubmit}>Salvar</button>
-        <button onClick={handleDelete}>Excluir</button> */}
+
 export default App;
