@@ -1,6 +1,6 @@
-// UserList.js
 import React from 'react';
 import { useData } from './DataContext';
+import './App.css';
 
 const UserList = () => {
   const { users } = useData();
@@ -8,38 +8,34 @@ const UserList = () => {
   return (
     <div>
       <h2>Usuários</h2>
-      <ul>
+      <ul className='container-ul'>
         {users.map((user) => (
-          <li key={user.id}>
-            {user.name}<br /> <br />
-            {user.username}<br /> <br />
-            {user.email}<br /> <br />
-            {/* {user.address}<br/> <br/>  */}
-            {user.phone}<br /> <br />
-            {user.website}<br /> <br />
-            {user.company}<br /> <br />
-
-
-
-
-          </li>
-
-        ))}
-      </ul>
-      <ul>
-        {users.map((Addres) => (
-          <li>
-            {{ addres.Address }}
-          </li>
-        ))}
-      </ul>
-      <ul>
-        {users.map((company) => (
-          <li>
-            {{ company.Company }}
+          <li key={user.id} className='container'>
+            <p>
+              <strong>Nome:</strong> {user.name}
+            </p>
+            <p>
+              <strong>Sobrenome:</strong> {user.username}
+            </p>
+            <p>
+              <strong>Email:</strong> {user.email}
+            </p>
+            <p>
+              <strong>Endereço:</strong> {user.address.street}, {user.address.suite}, {user.address.city}, {user.address.zipcode}
+            </p>
+            <p>
+              <strong>Telefone:</strong> {user.phone}
+            </p>
+            <p>
+              <strong>Site web:</strong> {user.website}
+            </p>
+            <p>
+              <strong>Empresa:</strong> {user.company.name}
+            </p>
           </li>
         ))}
       </ul>
+    
     </div>
   );
 };
