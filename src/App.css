@@ -35,4 +35,21 @@
   to {
     transform: rotate(360deg);
   }
+}.container-ul{
+  border: 20px;
+}
+ul{
+  padding: 0;
+}
+.container{
+  background-color: rgb(250, 227, 227);
+  margin: 20px;
+  padding: 20px!important;
+  list-style: none;
+}
+@media (min-width: 480px) {
+
+  .container-ul{
+
+  }
 }
