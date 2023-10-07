@@ -13,7 +13,7 @@ const UserList = () => {
 
 
 
-          <div key={user.id} className='container col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2'>
+          <div key={user.id} className='container col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3'>
 
             <ul className='container-ul'>
             <li>
